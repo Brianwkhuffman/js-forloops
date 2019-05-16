@@ -8,8 +8,10 @@ Write a for-loop that will iterate through 20 numbers (starting at 1 and ending 
 .
 "Now serving 20."
 */
-
-
+console.log('ForLoops #1');
+for (var i=0; i<21; i++){
+   console.log('Now serving #', i)
+}
 /* 2) Pop Charts
 Write a for-loop that will iterate through the topFive array below and console.log the following message:
 This week's chart buster is: 'Closer.'
@@ -18,13 +20,15 @@ This week's chart buster is: 'I Feel It Coming.'
 This week's chart buster is: 'Let Me Love You.'
 This week's chart buster is: '24K Magic.'
 */
-
+console.log('ForLoops #2');
 var topFive = ["Closer", "Starboy", "I Feel It Coming", "Let Me Love You", "24K Magic"];
-
+for (var song=0;song<topFive.length;song++){
+   console.log("This week's chart buster is:", topFive[song]);
+}
 
 /* 3) Dead Presidents
 Declare a variable named `presidents` and assign it to an array containing the following Presidents: Washington, Adams, Jefferson, Madison and Monroe.
- 
+
 Write a for-loop that will iterate through this array and within the for-loop console.log the following:
 The value at 0 is Washington.
 The value at 1 is Adams.
@@ -41,29 +45,57 @@ This function will iterate through the person parameter and console.log the foll
 
 "President person was a great leader."
 */
-
+console.log('ForLoops #3');
+var president = ['Washington', 'Adams', 'Jefferson', 'Madison', 'Monroe'];
+for (var b=0;b<president.length;b++){
+   console.log('The value at', b, 'is', president[b]);
+}
+console.log('ForLoops #3A');
+function leaders(person){
+   for (var i=0;i<person.length;i++){
+      console.log('President', person[i], 'was a great leader.');
+   }
+}
+leaders(president);
 
 /* 4) Line Number
 Declare a variable named `stringOfNumbers` and assign its value to an empty string. 
 
 Write a for-loop that concatenates a Number value into that string on each iteration, starting at `10` and continuing up to and including `20`. Console.log your result. It should read "1011121314151617181920"*/
-
-
+console.log('ForLoops #4');
+var stringOfNumbers = "";
+for (var c=10;c<21;c++){
+   stringOfNumbers+=c;
+}
+console.log(stringOfNumbers);
 /* 5) Even Stevens
 Declare a variable named `evenNumArr` and assign its value to an empty array. 
 
 Write a for-loop that will push even numbers to the `evenNumArr` array. We want to push 50 even even numbers starting from 0.
 Console.log your results.
 */
-
-
+console.log('ForLoops #5');
+var evenNumArr = [];
+for (var num1=0;num1<101;num1++){
+   if (num1%2===0){
+      evenNumArr.push(num1); //push method is the destination->.push
+   }
+}
+console.log('Even number box:', evenNumArr);
 /* 6) Up the Odds
 Declare a variable named `oddSum` and assign it to the Number value 0.
 
 Write a for-loop that will sum up odd numbers to the `oddSum` variable. We want to add 50 odd numbers starting from 1.
 Console.log your results.
 */
-  
+console.log('ForLoops #6');
+var oddSum = 0;
+for (var oddNum1=1;oddNum1<101;oddNum1++){
+   if (oddNum1%2===1){
+      oddSum += oddNum1
+   }
+}
+console.log('Odd numbers added:', oddSum);
 
 /* 7) Oops There It is
 Declare a variable named `oopsArray` and assign its to the following array: `[ 'turn' , , 'down' , , 'for' , , 'what' ]`.
@@ -71,6 +103,27 @@ Note that every odd index value in `oopsArray` is currently `undefined`. Using a
 
 [ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]
 */
+console.log('ForLoops #7');
+var oopsArray = ['turn' , , 'down' , , 'for' , , 'what'];
+console.log('Oops array original:', oopsArray);
+for (var i=0;i<oopsArray.length;i++){
+   if (i%2===1){
+      var no = 'nope';
+      oopsArray.splice(i, 1, no);
+   }
+}
+console.log('Array nope:', oopsArray);
+
+//Another way (easier)
+console.log('ForLoops #7 easier way');
+ var oopsArray = ['turn' , , 'down' , , 'for' , , 'what'];
+console.log('Oops array original:', oopsArray);
+for (var i=0;i<oopsArray.length;i++){
+    if (i%2===1){
+       oopsArray[i] = 'nope'
+    }
+ }
+console.log('Array nope:', oopsArray);
 
 
 /* 8) Is It There Oops
@@ -84,7 +137,12 @@ down
 nope
 turn
 */
-
+console.log('ForLoops #8');
+for (var i=0;i<oopsArray.length;i++){
+   oopsArray.reverse(i);
+   oopsArray.toString();
+}
+console.log('Backwards oopsArray:', oopsArray);
 
 /* 9) Siesta Time
 Declare a variable named `napSchedule` and assign its value to the following array: `[false, false, true, false, true, true]`
@@ -95,8 +153,18 @@ Next, write a function named `nap`. This function takes in a single parameter: `
 
 Inside of this function write a for-loop that will iterate through the `napSchedule` array and console.log the message: `ZzZzZzZz` if the schedule is `true`, otherwise the it will console.log the message: `Gotta get coding!` if the schedule is `false`.
 */
-
-
+console.log('ForLoops #9');
+var napSchedule = [false, false, true, false, true, true];
+function nap(schedule){
+   for (var i=0;i<schedule.length;i++){
+      if (schedule[i]===false){
+         console.log('zzzzzzzzzzz');
+      }else{
+         console.log('Gotta get coding');
+      }
+   }
+}
+nap(napSchedule);
 
 /* 10) Copy Pasta
 Declare a variable named `valuesArray` and assign its value to be an array: `[99, 66, 829, 1941, 8, 76]`. 
@@ -109,7 +177,9 @@ Write a function named `copyArray` which takes two arguments: `originArray` and 
 
 Inside of this function write a for-loop that will iterate through the contents of the `originArray` and pushes each element of that array into `destinationArray`. Console.log your result.
 */
-
+console.log('ForLoops #10');
+var valuesArray = [99, 66, 829, 1941, 8, 76];
+var copyValuesArray = [];
 
 
 /*Final Boss*/
@@ -118,8 +188,7 @@ Inside of this function write a for-loop that will iterate through the contents 
 Declare a variable named `topQuote` and assign it to a String value of your favorite one line quote.
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
-
-
+console.log('ForLoops #11');
 
 /* 12) Puppet Master
 Declare a variable named `miscStorage` set it's value to be: `[ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]`
@@ -129,15 +198,25 @@ Write a function named `generateArrayOfStrings` which takes a single argument `s
    @return Datatype: Array
 
 */
-
+console.log('ForLoops #12');
 
 
 /* 13) All Grown Up 
 Write a function that will capitalize the first letter in each word in the phrase below. The function will console.log the message: "I've Lived A Life That's Full. I've Traveled Each And Every Highway. But More, Much More Than This. I Did It My Way."  
 */
+console.log('ForLoops #13');
 
 var myWay = "i've lived a life that's full, i've traveled each and every highway. but more, much more than this. i did it my way.";
 
+function firstCap(str){          //first covert the string to an array
+   var strArr = str.split(' ');  // (' ') = split words after empty space
+   //console.log(strArr);        //array of strings
+   for (var i=0;i<strArr.length;i++){ //loop
+      strArr[i] = strArr[i][0].toUpperCase() + strArr[i].slice(1); //[0] targets the first letter. strArr[i].slice(1) = rest of the word
+   }
+   return strArr.join(' '); //converts back to string
+}
+console.log(firstCap(myWay));
 
 
 /* 14) Sightseeing
